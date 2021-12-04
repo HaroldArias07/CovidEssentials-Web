@@ -12035,8 +12035,8 @@ header .logo {
   margin: auto;
   position: absolute;
   right: 0;
-  top: 30px;
-  width: 120px;
+  top: 15px;
+  width: 300px;
 }
 @media (max-width: 767px) {
   header .logo {
