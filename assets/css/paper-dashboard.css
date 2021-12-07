@@ -50,7 +50,6 @@
   transition: all 0.9s;
   text-align: center;
   width: 40%;
-  box-shadow: -2px 1px 3px 0px rgb(42, 169, 238);
 }
 .button-action-delete{
   background-color: rgba(255, 255, 255, 0);
@@ -62,7 +61,6 @@
   transition: all 0.9s;
   text-align: center;
   width: 40%;
-  box-shadow: -2px 1px 3px 0px rgb(238, 61, 42);
 }
 .shake {
   -webkit-animation-name: shake;
@@ -1449,7 +1447,9 @@ p.description {
 
 .text-primary,
 a.text-primary:focus, a.text-primary:hover {
-  color: #b91f19 !important; }
+  color: #b91f19 !important; 
+  text-align: center;
+}
 
 .text-info,
 a.text-info:focus, a.text-info:hover {
@@ -3651,6 +3651,7 @@ License - nucleoapp.com/license/
     .card .card-header:not([data-background-color]) {
       background-color: transparent; }
     .card .card-header .card-title {
+      text-align: center;
       margin-top: 10px; }
   .card .map {
     border-radius: 3px; }
