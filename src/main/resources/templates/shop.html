@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="utf-8">
-    <title>CovidEssentials</title>
-    <meta name="keywords" content="keywords" />
-    <meta name="description" content="description" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="/assets/images/logo-ce.png" />
-    <link href="/assets/styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/pe-icon-7-stroke/css/helper.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/styles/minimal-menu.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/styles/flat-form.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/styles/fancySelect.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/styles/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/styles/allinone_bannerRotator.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/styles/owl.carousel.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/styles/owl.theme.default.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/styles/styles.css" rel="stylesheet" type="text/css" />
-    <script src="/assets/scripts/libs/prefixfree.min.js"></script>
-    <script src="/assets/scripts/libs/modernizr.js"></script>
-</head>
+<html class="no-js" lang="es" xmlns:th="https://www.thymeleaf.org">
+	<head>
+	    <meta charset="utf-8">
+	    <title>CovidEssentials</title>
+	    <meta name="keywords" content="keywords" />
+	    <meta name="description" content="description" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="shortcut icon" href="/assets/images/logo-ce.png" />
+	    <link href="/assets/styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/pe-icon-7-stroke/css/helper.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/styles/minimal-menu.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/styles/flat-form.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/styles/fancySelect.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/styles/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/styles/allinone_bannerRotator.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/styles/owl.carousel.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/styles/owl.theme.default.min.css" rel="stylesheet" type="text/css" />
+	    <link href="/assets/styles/styles.css" rel="stylesheet" type="text/css" />
+	    <script src="/assets/scripts/libs/prefixfree.min.js"></script>
+	    <script src="/assets/scripts/libs/modernizr.js"></script>
+	</head>
     <body class="home7">
         <div class="topbar">
             <div class="container">
                 <div class="right-topbar">
                     <ul class="list-inline">
                         <li>
-                            <div th:if="${session.usuario == null}" class="left-topbar">
+                            <div th:if="${session.usuarios == null}" class="left-topbar">
                                 <a th:href="@{/auth/login}">INICIAR SESIÓN</a> / <a th:href="@{/auth/register}">REGISTRARME</a>
                              </div>
-                             <div th:if="${session.usuario != null}" class="left-topbar">
+                             <div th:if="${session.usuarios != null}" class="left-topbar">
                                 <form th:action="@{/logout}" method="POST">
                                 	<button type="submit">CERRAR SESIÓN</button >
                                 </form>	
@@ -45,10 +46,10 @@
         <header>
             <div class="container">
             	<div>
-            		<a class="logo" th:href="@{/private/index}" th:if="${session.usuario != null}">
+            		<a class="logo" th:href="@{/private/index}" th:if="${session.usuarios != null}">
                 		<img src="/assets/images/logo-ce-l.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
             		</a>
-	                <a class="logo" th:href="@{/public/index}" th:if="${session.usuario == null}">
+	                <a class="logo" th:href="@{/public/index}" th:if="${session.usuarios == null}">
                 		<img src="/assets/images/logo-ce-l.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
             		</a>
             	</div>
@@ -57,45 +58,45 @@
                     <div class="minimal-menu">
                         <ul class="menu">
                         
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/index}">INICIO</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/index}">INICIO</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}" class="current-menu-item">
+                            <li th:if="${session.usuarios != null}" class="current-menu-item">
                                 <a th:href="@{/private/shop}">COMPRAR</a>
                             </li >
-                            <li th:if="${session.usuario == null}" class="current-menu-item">
+                            <li th:if="${session.usuarios == null}" class="current-menu-item">
                                 <a th:href="@{/public/shop}">COMPRAR</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/stores}">TIENDAS</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/stores}">TIENDAS</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/blog}">BLOG</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/blog}">BLOG</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/aboutus}">NOSOTROS</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/aboutus}">NOSOTROS</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/contact}">CONTACTO</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/contact}">CONTACTO</a>
                             </li >
                         </ul>
@@ -220,41 +221,28 @@
                                 </div>
                             </div>
                             <div class="box-product row">
-                                <div class="col-md-4 col-sm-6">
+                                <div class="col-md-4 col-sm-6" th:each="producto:${productos}">
                                     <div class="product-item">
                                         <div class="product-thumb">
                                             <div class="main-img">
                                                 <a href="single-product.html">
-                                                    <img class="img-responsive" src="/assets/images/product-img-10.jpg" alt="img" />
+                                                    <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
                                                 </a>
                                             </div>
                                             <div class="overlay-img">
                                                 <a href="single-product.html">
-                                                    <img class="img-responsive" src="/assets/images/product-img-10-thumb.jpg" alt="img" />
+                                                    <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
                                                 </a>
-                                            </div>
-                                            <div class="product-new">
-                                                NEW
-                                            </div>
-                                            <div class="product-sale">
-                                                -25%
                                             </div>
                                             <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
                                         </div>
-                                        <h4 class="product-name"><a href="single-product.html">COAT WITH WOOL WRAPAROUND COLLAR</a></h4>
+                                        <h4 class="product-name"><a href="single-product.html"><strong th:text="${producto.nombre_producto}"></strong ></a></h4>
                                         <p class="product-price">
-                                        <ins><span class="amount">100.99 USD</span></ins>
-                                        <del><span class="amount">189.99 USD</span></del>
+                                        <ins><span class="amount"> S/</span> <span class="amount" th:text="${producto.precio_producto}"></span></ins>
                                         </p>
-                                        <div class="group-buttons">
+                                        <div class="group-buttons center-all">
                                             <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                            <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                            <i class="pe-7s-repeat"></i>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="pe-7s-like"></i>
+                                            <span>Comprar</span> <i class="fa fa-shopping-cart"></i>
                                             </button>
                                         </div>
                                     </div>

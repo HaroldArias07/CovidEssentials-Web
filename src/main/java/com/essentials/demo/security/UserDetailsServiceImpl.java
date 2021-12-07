@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.essentials.demo.models.dao.IUsuarioDAO;
-import com.essentials.demo.models.entity.Usuario;
+import com.essentials.demo.models.entity.Usuarios;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
@@ -20,13 +20,13 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario usuario = usuarioDao.findByUsername(username);
+		Usuarios usuarios = usuarioDao.findByUsername(username);
 		UserBuilder builder = null;
 		
-		if(usuario != null) {
+		if(usuarios != null) {
 			builder = User.withUsername(username);
 			builder.disabled(false);
-			builder.password(usuario.getPassword());
+			builder.password(usuarios.getPassword());
 			builder.authorities(new SimpleGrantedAuthority("ROLE_USER"));
 		}
 		else {

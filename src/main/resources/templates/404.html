@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="es" xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
-        <title>Not Found</title>
+        <title>404</title>
         <meta name="keywords" content="keywords" />
         <meta name="description" content="description" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,10 +27,10 @@
                 <div class="right-topbar">
                     <ul class="list-inline">
                         <li>
-                            <div th:if="${session.usuario == null}" class="left-topbar">
+                            <div th:if="${session.usuarios == null}" class="left-topbar">
                                 <a th:href="@{/auth/login}">INICIAR SESIÓN</a> / <a th:href="@{/auth/register}">REGISTRARME</a>
                              </div>
-                             <div th:if="${session.usuario != null}" class="left-topbar">
+                             <div th:if="${session.usuarios != null}" class="left-topbar">
                                 <form th:action="@{/logout}" method="POST">
                                 	<button type="submit">CERRAR SESIÓN</button >
                                 </form>	
@@ -46,10 +46,10 @@
         <header>
             <div class="container">
             	<div>
-            		<a class="logo" th:href="@{/private/index}" th:if="${session.usuario != null}">
+            		<a class="logo" th:href="@{/private/index}" th:if="${session.usuarios != null}">
                 		<img src="/assets/images/logo-ce-l.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
             		</a>
-	                <a class="logo" th:href="@{/public/index}" th:if="${session.usuario == null}">
+	                <a class="logo" th:href="@{/public/index}" th:if="${session.usuarios == null}">
                 		<img src="/assets/images/logo-ce-l.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
             		</a>
             	</div>
@@ -58,45 +58,45 @@
                     <div class="minimal-menu">
                         <ul class="menu">
                         
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/index}">INICIO</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/index}">INICIO</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/shop}">COMPRAR</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/shop}">COMPRAR</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/stores}">TIENDAS</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/stores}">TIENDAS</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/blog}">BLOG</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/blog}">BLOG</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/aboutus}">NOSOTROS</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/aboutus}">NOSOTROS</a>
                             </li >
                             
-                            <li th:if="${session.usuario != null}">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/contact}">CONTACTO</a>
                             </li >
-                            <li th:if="${session.usuario == null}">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/contact}">CONTACTO</a>
                             </li >
                         </ul>
@@ -108,7 +108,7 @@
         </header>
         <div class="error-content">
             <h1>404 PAGE</h1>
-            <p>La página a la que tratas de acceder, no existe.<br />Regresar al <a th:if="${session.usuario != null}" th:href="@{/private/index}">Inicio</a > <a th:if="${session.usuario == null}" th:href="@{/public/index}">Inicio</a >.</p>
+            <p>La página a la que tratas de acceder, no existe.<br />Regresar al <a th:if="${session.usuarios != null}" th:href="@{/private/index}">Inicio</a > <a th:if="${session.usuarios == null}" th:href="@{/public/index}">Inicio</a >.</p>
         </div>
         <hr class="gray-line" />
         <footer>

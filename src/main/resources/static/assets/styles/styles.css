@@ -5890,6 +5890,7 @@ button.close {
 .carousel {
   position: relative;
 }
+
 .carousel-inner {
   position: relative;
   overflow: hidden;
@@ -14831,7 +14832,7 @@ header .main-nav .current-menu-item > a {
 }
 .box-product .product-item .group-buttons {
   display: inline-block;
-  text-align: right;
+  text-align: center;
   width: 100%;
 }
 .box-product .product-item .group-buttons button {
@@ -14891,9 +14892,9 @@ header .main-nav .current-menu-item > a {
 }
 .box-product .product-item .group-buttons .add-to-cart {
   color: #25282c;
-  float: left;
-  font-size: 11px;
-  padding: 11px 16px;
+  float: none;
+  font-size: 12px;
+  padding: 10px 30px;
   text-transform: uppercase;
   display: inline-block;
   -webkit-transform: translateZ(0);
@@ -14904,7 +14905,7 @@ header .main-nav .current-menu-item > a {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   background-color: transparent;
-  border-radius: 5px;
+  border-radius: 7px;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-duration: 0.3s;

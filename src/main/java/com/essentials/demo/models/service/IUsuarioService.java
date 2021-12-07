@@ -1,8 +1,8 @@
 package com.essentials.demo.models.service;
 
-import com.essentials.demo.models.entity.Usuario;
+import com.essentials.demo.models.entity.Usuarios;
 
 public interface IUsuarioService {
-	public Usuario findByUsername(String username);
-	public Usuario registrar(Usuario u);
+	public Usuarios findByUsername(String username);
+	public Usuarios registrar(Usuarios u);
 }

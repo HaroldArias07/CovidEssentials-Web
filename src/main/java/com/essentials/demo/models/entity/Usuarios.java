@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Usuarios")
-public class Usuario implements Serializable{
+public class Usuarios implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -86,7 +86,7 @@ public class Usuario implements Serializable{
 		this.password = password;
 	}
 
-	public Usuario(Long id, String nombre, String apellido, String telefono, String fecha, String email,
+	public Usuarios(Long id, String nombre, String apellido, String telefono, String fecha, String email,
 			String username, String password) {
 		super();
 		this.id = id;
@@ -99,10 +99,10 @@ public class Usuario implements Serializable{
 		this.password = password;
 	}
 
-	public Usuario() {
+	public Usuarios() {
 		super();
 	}
-	
+
 	private static final long serialVersionUID = 1L;
 	
 }
