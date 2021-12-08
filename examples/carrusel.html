@@ -146,138 +146,140 @@
       </nav>
       <!-- End Navbar -->
       <div class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Carrusel</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        ID
-                      </th>
-                      <th>
-                        TITULO
-                      </th>
-                      <th>
-                        IMAGEN-URL
-                      </th>
-                      <th>
-                        ACCIONES
-                      </th>
-                    </thead>
-                    <tbody>
-                      <!-- INICIO TD -->
-                      <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          COVID19-ESSENTAILS
-                        </td>
-                        <td>
-                          https://www.welthy.es/wp-content/uploads/2020/09/coronavirus-4914026_1920.jpg
-                        </td>
-                        <td>
-                          <button class="button-action-edit">
-                            <img class="icon-action" src="../assets/img/edit-ic.svg">
-                          </button>
-                          <button class="button-action-delete">
-                            <img class="icon-action" src="../assets/img/delete-ic.svg">
-                          </button>
-                        </td>
-                      </tr>
-                      <!-- FIN TR -->
-                      <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          COVID19-ESSENTAILS
-                        </td>
-                        <td>
-                          https://www.welthy.es/wp-content/uploads/2020/09/coronavirus-4914026_1920.jpg
-                        </td>
-                        <td>
-                          <button class="button-action-edit">
-                            <img class="icon-action" src="../assets/img/edit-ic.svg">
-                          </button>
-                          <button class="button-action-delete">
-                            <img class="icon-action" src="../assets/img/delete-ic.svg">
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          COVID19-ESSENTAILS
-                        </td>
-                        <td>
-                          https://www.welthy.es/wp-content/uploads/2020/09/coronavirus-4914026_1920.jpg
-                        </td>
-                        <td>
-                          <button class="button-action-edit">
-                            <img class="icon-action" src="../assets/img/edit-ic.svg">
-                          </button>
-                          <button class="button-action-delete">
-                            <img class="icon-action" src="../assets/img/delete-ic.svg">
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          COVID19-ESSENTAILS
-                        </td>
-                        <td>
-                          https://www.welthy.es/wp-content/uploads/2020/09/coronavirus-4914026_1920.jpg
-                        </td>
-                        <td>
-                          <button class="button-action-edit">
-                            <img class="icon-action" src="../assets/img/edit-ic.svg">
-                          </button>
-                          <button class="button-action-delete">
-                            <img class="icon-action" src="../assets/img/delete-ic.svg">
-                          </button>
-                        </td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
+        <div class="container">
+          <div class="mx-auto col-sm-12 main-section" id="myTab" role="tablist">
+            <ul class="nav nav-tabs justify-content-end">
+              <li class="nav-item">
+              <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Carruseles</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Formulario</a>				   	
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <!-- table -->
+              <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title">Carrusel</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table">
+                            <thead class=" text-primary">
+                              <th>
+                                ID
+                              </th>
+                              <th>
+                                TITULO
+                              </th>
+                              <th>
+                                IMAGEN-URL
+                              </th>
+                              <th>
+                                ACCIONES
+                              </th>
+                            </thead>
+                            <tbody>
+                              <!-- INICIO TD -->
+                              <tr>
+                                <td>
+                                  1
+                                </td>
+                                <td>
+                                  https://www.welthy.es/wp-content/uploads/2020/09/coronavirus-4914026_1920.jpg
+                                </td>
+                                <td>
+                                  https://www.welthy.es/wp-content/uploads/2020/09/coronavirus-4914026_1920.jpg
+                                </td>
+                                <td>
+                                  <button class="button-action-edit">
+                                    <img class="icon-action" src="../assets/img/edit-ic.svg">
+                                  </button>
+                                  <button class="button-action-delete">
+                                    <img class="icon-action" src="../assets/img/delete-ic.svg">
+                                  </button>
+                                </td>
+                              </tr>
+                              <!-- FIN TR -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <!-- form -->
+              <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-user">
+                      <div class="card-header">
+                        <h5 class="card-title">Agregar Nuevo Carrusel</h5>
+                      </div>
+                      <div class="card-body">
+                        <form >
+                          <div class="row">
+                            <div class="col-md-3 pr-1">
+                              <div class="form-group">
+                                <label>ID</label>
+                                <input type="number" class="form-control" disabled="" placeholder="ID" value="1">
+                              </div>
+                            </div>
+                            <div class="col-md-9 pl-1">
+                              <div class="form-group">
+                                <label>URL Titulo</label>
+                                <input type="text" class="form-control" placeholder="https://">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 px-3">
+                            <div class="form-group">
+                              <label>URL Imagen</label>
+                              <input type="text" class="form-control" placeholder="https://">
+                            </div>
+                          </div>
+                          </div>
+                          <div class="row">
+                            <div class="update ml-auto mr-auto">
+                              <button type="submit" class="btn btn-primary btn-round">Agregar</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end form -->
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer footer-black  footer-white ">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li><a href="https://www.linkedin.com/in/luis-fernando-valdivia/" target="_blank">Valdivia</a></li>
-                <li><a href="https://www.linkedin.com/in/harold-arias-sotelo/" target="_blank">Arias</a></li>
-                <li><a href="#" target="_blank">Covid 19-Essentials</a></li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Valdivia - Arias
-              </span>
-            </div>
+    <footer class="footer footer-black  footer-white ">
+      <div class="container-fluid">
+        <div class="row">
+          <nav class="footer-nav">
+            <ul>
+              <li><a href="https://www.linkedin.com/in/luis-fernando-valdivia/" target="_blank">Valdivia</a></li>
+              <li><a href="https://www.linkedin.com/in/harold-arias-sotelo/" target="_blank">Arias</a></li>
+              <li><a href="#" target="_blank">Covid 19-Essentials</a></li>
+            </ul>
+          </nav>
+          <div class="credits ml-auto">
+            <span class="copyright">
+              © <script>
+                document.write(new Date().getFullYear())
+              </script>, made with <i class="fa fa-heart heart"></i> by Valdivia - Arias
+            </span>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
