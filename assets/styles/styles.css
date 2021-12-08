@@ -181,8 +181,11 @@ img.img-profile{
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  border-color: black;
-  border:black;
+}
+
+img.img-logout{
+  width: 2rem;
+  height: 2rem;
 }
 
 a:active,
