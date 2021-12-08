@@ -176,6 +176,15 @@ template {
 a {
   background-color: transparent;
 }
+
+img.img-profile{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border-color: black;
+  border:black;
+}
+
 a:active,
 a:hover {
   outline: 0;
