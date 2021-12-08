@@ -36,7 +36,6 @@ public class BlogServiceImpl implements IBlogService {
 	@Override
 	public void delete(int id_blog) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

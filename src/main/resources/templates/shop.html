@@ -109,97 +109,53 @@
         <div class="main">
             <div class="container">
                 <div class="header-page">
-                    <h1>SHOP</h1>
+                    <h1>Productos</h1>
                 </div>
                 <!-- /.header-page -->
                 <div class="row">
                     <div class="col-md-3">
                         <div class="sidebar">
                             <aside class="widget">
-                                <h4 class="widget-title">CATEGORY</h4>
+                                <h4 class="widget-title">Categorias</h4>
                                 <ul class="ul-sidebar">
-                                    <li>
-                                        <a href="#">
-                                            MEN’S CLOTHING
-                                            <span>(60)</span>
-                                        </a>
-                                        <ul class="children">
-                                            <li>
-                                                <a href="#">
-                                                    Hoodies & Sweatshirts
-                                                    <span>(15)</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    Jackets & Coats
-                                                    <span>(7)</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    Pants & Chinos
-                                                    <span>(25)</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    T-Shirts & Tanks
-                                                    <span>(13)</span>
-                                                </a>
-                                            </li>
+                                	<li>
+                                        <a >Alcohol</a >
+                                        <ul class="children works-filter">
+                                            <li class="filter" data-filter=".Alcohol_Gel"> Gel</li >
+                                            <li class="filter" data-filter=".Alcohol_Liquido"> Liquido</li >
+                                            <br>
                                         </ul>
                                     </li>
+                                    
                                     <li>
-                                        <a href="#">
-                                            WOMEN’S CLOTHING
-                                            <span>(67)</span>
-                                        </a>
-                                        <ul class="children">
-                                            <li>
-                                                <a href="#">
-                                                    Coats & Jackets
-                                                    <span>(15)</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    Dresses
-                                                    <span>(20)</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    Hoodies & Sweatshirts
-                                                    <span>(5)</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    Tops
-                                                    <span>(27)</span>
-                                                </a>
-                                            </li>
+                                        <a >Guantes</a >
+                                        <ul class="children works-filter">
+                                            <li class="filter" data-filter=".Guante_Tela"> Tela</li >
+                                            <li class="filter" data-filter=".Guante_Quirurgico"> Quirurgicos</li >
+                                            <br>
                                         </ul>
                                     </li>
+                                    
                                     <li>
-                                        <a href="#">
-                                            ACCESSORIES
-                                            <span>(15)</span>
-                                        </a>
-                                    </li>
+                                        <a >Mascarillas</a >
+                                        <ul class="children works-filter">
+                                        	<li class="filter" data-filter=".Mascarilla_Deportiva"> Deportiva</li >
+                                            <li class="filter" data-filter=".Mascarilla_KN95"> KN95</li >
+                                            <li class="filter" data-filter=".Mascarilla_Tela"> Tela</li >
+                                            <li class="filter" data-filter=".Mascarilla_Quirurgica"> Quirurgica</li >
+                                            <br>
+                                        </ul>
+                                    </li  >
+                                    
                                     <li>
-                                        <a href="#">
-                                            SHOES
-                                            <span>(21)</span>
-                                        </a>
+                                        <a >Protector facial</a>
+                                        <ul class="children works-filter">
+                                            <li class="filter" data-filter=".Facial_Lentes"> Lentes</li >
+                                            <li class="filter" data-filter=".Facial_Vincha"> Vincha</li >
+                                            <br>
+                                        </ul>
                                     </li>
-                                    <li>
-                                        <a href="#">
-                                            SALES
-                                            <span>(359)</span>
-                                        </a>
-                                    </li>
+                                    
                                 </ul>
                             </aside>
                         </div>
@@ -209,50 +165,42 @@
                         <div class="main-content">
                             <div class="top-products">
                                 <div class="showing-results">
-                                    SHOWING 1–9 OF 100 RESULTS
-                                </div>
-                                <div class="sortby">
-                                    <select class="custom-select">
-                                        <option value="0">DEFAULT SORTING</option>
-                                        <option value="1">Price: Lowest First</option>
-                                        <option value="2">Price: Highest First</option>
-                                        <option value="3">Best seller Product</option>
-                                    </select>
+                                    Mostrando 1–9 productos
                                 </div>
                             </div>
-                            <div class="box-product row">
-                                <div class="col-md-4 col-sm-6" th:each="producto:${productos}">
-                                    <div class="product-item">
+                            <div class="box-product row list-works">
+                            <div class="row">
+                                <div th:each="producto:${productos}" th:if="${producto.id_producto} < 10" th:class="'mix col-md-4 '+${producto.tipo_producto} +' col-sm-6'">
+                                    <div class="product-item ">
                                         <div class="product-thumb">
                                             <div class="main-img">
-                                                <a href="single-product.html">
+                                                <a>
                                                     <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
                                                 </a>
                                             </div>
-                                            <div class="overlay-img">
-                                                <a href="single-product.html">
-                                                    <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
-                                                </a>
-                                            </div>
-                                            <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
+                                            <a href="#" class="details"><i class="pe-7s-search"></i></a>
                                         </div>
                                         <h4 class="product-name"><a href="single-product.html"><strong th:text="${producto.nombre_producto}"></strong ></a></h4>
                                         <p class="product-price">
                                         <ins><span class="amount"> S/</span> <span class="amount" th:text="${producto.precio_producto}"></span></ins>
                                         </p>
                                         <div class="group-buttons center-all">
-                                            <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                            <span>Comprar</span> <i class="fa fa-shopping-cart"></i>
-                                            </button>
+                                            <a th:if="${session.usuarios != null}" th:href="@{/private/singleproduct}" type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            	<span>Comprar</span> <i class="fa fa-shopping-cart"></i>
+                                            </a  >
+                                            <a th:if="${session.usuarios == null}" th:href="@{/auth/login}" type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            	<span>Comprar</span> <i class="fa fa-shopping-cart"></i>
+                                            </a  >
                                         </div>
                                     </div>
                                 </div>
+                            </div >
                             </div>
                             <!-- /.box-product -->
                             <nav class="pagination">
                                 <ul class="page-numbers">
                                     <li><span class="current">1</span></li>
-                                    <li><a href="#">2</a></li>
+                                    <li><a th:href="@{/private/shop2}">2</a></li>
                                     <li><a class="last " href="#"><i class="fa fa-angle-double-right"></i></a></li>
                                 </ul>
                             </nav>
@@ -324,8 +272,9 @@
         <script src="/assets/scripts/libs/jquery.ui.touch-punch.min.js"></script>
         <script src="/assets/scripts/libs/jquery.mousewheel.min.js"></script>
         <script src="/assets/scripts/libs/allinone_bannerRotator.js"></script>
-        <script src="assets/scripts/libs/owl.carousel.min.js"></script>
-        <script src="assets/scripts/libs/jquery.countdown.min.js"></script>
-        <script src="assets/scripts/functions.js"></script>
+        <script src="/assets/scripts/libs/owl.carousel.min.js"></script>
+        <script src="/assets/scripts/libs/jquery.countdown.min.js"></script>
+        <script src="/assets/scripts/libs/jquery.mixitup.min.js"></script>
+        <script src="/assets/scripts/functions.js"></script>
     </body>
 </html>

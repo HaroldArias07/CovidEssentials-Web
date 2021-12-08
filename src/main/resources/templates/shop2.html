@@ -2,7 +2,7 @@
 <html class="no-js" lang="es" xmlns:th="https://www.thymeleaf.org">
 	<head>
 	    <meta charset="utf-8">
-	    <title>Tiendas</title>
+	    <title>CovidEssentials</title>
 	    <meta name="keywords" content="keywords" />
 	    <meta name="description" content="description" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,17 +65,17 @@
                                 <a th:href="@{/public/index}">INICIO</a>
                             </li >
                             
-                            <li th:if="${session.usuarios != null}">
+                            <li th:if="${session.usuarios != null}" class="current-menu-item">
                                 <a th:href="@{/private/shop}">COMPRAR</a>
                             </li >
-                            <li th:if="${session.usuarios == null}">
+                            <li th:if="${session.usuarios == null}" class="current-menu-item">
                                 <a th:href="@{/public/shop}">COMPRAR</a>
                             </li >
                             
-                            <li th:if="${session.usuarios != null}" class="current-menu-item">
+                            <li th:if="${session.usuarios != null}">
                                 <a th:href="@{/private/stores}">TIENDAS</a>
                             </li >
-                            <li th:if="${session.usuarios == null}" class="current-menu-item">
+                            <li th:if="${session.usuarios == null}">
                                 <a th:href="@{/public/stores}">TIENDAS</a>
                             </li >
                             
@@ -107,41 +107,109 @@
             </div>
         </header>
         <div class="main">
-            <div class="header-page">
-                <div class="container">
-                    <h1>STORES</h1>
+            <div class="container">
+                <div class="header-page">
+                    <h1>Productos</h1>
                 </div>
-            </div>
-            <!-- /.header-page -->
-            <div class="main-content">
-                <div class="container">
-                    <div class="text-center">
-                        <ul class="works-filter">
-                            <li class="filter" data-filter="all">TODO</li>
-                            <li class="filter" data-filter=".EEUU">EE.UU</li>
-                            <li class="filter" data-filter=".Perú">PERÚ</li>
-                        </ul>
-                        <div class="list-works">
-                            <div class="row">
-                                <div th:each="tienda:${tiendas}" th:if="${tienda.id_tienda} < 7" th:class="'mix '+${tienda.pais_tienda}+' col-sm-6'">
-                                    <div class="works-item">
-                                        <div class="works-thumb">
-                                            <div class="main-img">
-                                                <a>
-                                                    <img class="img-responsive" th:src="${tienda.imagen_tienda}" alt="img" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <h5 th:text="${tienda.nombre_tienda}"></h5 >
-                                        <h6 th:text="${tienda.direccion_tienda}"> </h6 ><h4 th:text="${tienda.distrito_tienda}"> </h4>
-                                    </div>
+                <!-- /.header-page -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="sidebar">
+                            <aside class="widget">
+                                <h4 class="widget-title">Categorias</h4>
+                                <ul class="ul-sidebar">
+                                	<li>
+                                        <a >Alcohol</a >
+                                        <ul class="children works-filter">
+                                            <li class="filter" data-filter=".Alcohol_Gel"> Gel</li >
+                                            <li class="filter" data-filter=".Alcohol_Liquido"> Liquido</li >
+                                            <br>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li>
+                                        <a >Guantes</a >
+                                        <ul class="children works-filter">
+                                            <li class="filter" data-filter=".Guante_Tela"> Tela</li >
+                                            <li class="filter" data-filter=".Guante_Quirurgico"> Quirurgicos</li >
+                                            <br>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li>
+                                        <a >Mascarillas</a >
+                                        <ul class="children works-filter">
+                                        	<li class="filter" data-filter=".Mascarilla_Deportiva"> Deportiva</li >
+                                            <li class="filter" data-filter=".Mascarilla_KN95"> KN95</li >
+                                            <li class="filter" data-filter=".Mascarilla_Tela"> Tela</li >
+                                            <li class="filter" data-filter=".Mascarilla_Quirurgica"> Quirurgica</li >
+                                            <br>
+                                        </ul>
+                                    </li  >
+                                    
+                                    <li>
+                                        <a>Protector facial</a>
+                                        <ul class="children works-filter">
+                                            <li class="filter" data-filter=".Facial_Lentes"> Lentes</li >
+                                            <li class="filter" data-filter=".Facial_Vincha"> Vincha</li >
+                                            <br>
+                                        </ul>
+                                    </li>
+                                    
+                                </ul>
+                            </aside>
+                        </div>
+                        <!-- /.sidebar -->
+                    </div>
+                    <div class="col-md-9">
+                        <div class="main-content">
+                            <div class="top-products">
+                                <div class="showing-results">
+                                    Mostrando 10–18 productos
                                 </div>
                             </div>
+                            <div class="box-product row list-works">
+                            <div class="row">
+                                <div th:each="producto:${productos}" th:if="${producto.id_producto} > 9 AND ${producto.id_producto} < 19" th:class="'mix col-md-4 '+${producto.tipo_producto}+' col-sm-6'">
+                                    <div class="product-item ">
+                                        <div class="product-thumb">
+                                            <div class="main-img">
+                                                <a>
+                                                    <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
+                                                </a>
+                                            </div>
+                                            <a href="#" class="details"><i class="pe-7s-search"></i></a>
+                                        </div>
+                                        <h4 class="product-name"><a href="single-product.html"><strong th:text="${producto.nombre_producto}"></strong ></a></h4>
+                                        <p class="product-price">
+                                        <ins><span class="amount"> S/</span> <span class="amount" th:text="${producto.precio_producto}"></span></ins>
+                                        </p>
+                                        <div class="group-buttons center-all">
+                                            <a th:if="${session.usuarios != null}" th:href="@{/private/singleproduct}" type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            	<span>Comprar</span> <i class="fa fa-shopping-cart"></i>
+                                            </a  >
+                                            <a th:if="${session.usuarios == null}" th:href="@{/auth/login}" type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            	<span>Comprar</span> <i class="fa fa-shopping-cart"></i>
+                                            </a  >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div >
+                            </div>
+                            <!-- /.box-product -->
+                            <nav class="pagination">
+                                <ul class="page-numbers">
+                                	<li><a th:href="@{/private/shop}">1</a></li>
+                                    <li><span class="current">2</span></li>
+                                    <li><a class="last " href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                                </ul>
+                            </nav>
+                            <!-- /.pagination -->
                         </div>
+                        <!-- /.main-content -->
                     </div>
                 </div>
             </div>
-            <!-- /.main-content -->
         </div>
         <hr class="gray-line" />
         <footer>

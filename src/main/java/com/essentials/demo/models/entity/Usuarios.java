@@ -19,6 +19,7 @@ public class Usuarios implements Serializable{
 	private String telefono;
 	private String fecha;
 	private String email;
+	private String imagen;
 	private String username;
 	private String password;
 
@@ -70,6 +71,14 @@ public class Usuarios implements Serializable{
 		this.email = email;
 	}
 
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -86,7 +95,11 @@ public class Usuarios implements Serializable{
 		this.password = password;
 	}
 
-	public Usuarios(Long id, String nombre, String apellido, String telefono, String fecha, String email,
+	public Usuarios() {
+		super();
+	}
+
+	public Usuarios(Long id, String nombre, String apellido, String telefono, String fecha, String email, String imagen,
 			String username, String password) {
 		super();
 		this.id = id;
@@ -95,12 +108,9 @@ public class Usuarios implements Serializable{
 		this.telefono = telefono;
 		this.fecha = fecha;
 		this.email = email;
+		this.imagen = imagen;
 		this.username = username;
 		this.password = password;
-	}
-
-	public Usuarios() {
-		super();
 	}
 
 	private static final long serialVersionUID = 1L;

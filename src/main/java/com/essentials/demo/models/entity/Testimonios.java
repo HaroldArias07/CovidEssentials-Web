@@ -15,6 +15,7 @@ public class Testimonios {
 	private int id_testimonio;
 	private String descripcion_testimonio;
 	private String usuario_testimonio;
+	private String imagen_testimonio;
 	private String fecha_testimonio;
 	private String rol_testimonio;
 
@@ -42,6 +43,14 @@ public class Testimonios {
 		this.usuario_testimonio = usuario_testimonio;
 	}
 
+	public String getImagen_testimonio() {
+		return imagen_testimonio;
+	}
+
+	public void setImagen_testimonio(String imagen_testimonio) {
+		this.imagen_testimonio = imagen_testimonio;
+	}
+
 	public String getFecha_testimonio() {
 		return fecha_testimonio;
 	}
@@ -59,11 +68,12 @@ public class Testimonios {
 	}
 
 	public Testimonios(int id_testimonio, String descripcion_testimonio, String usuario_testimonio,
-			String fecha_testimonio, String rol_testimonio) {
+			String imagen_testimonio, String fecha_testimonio, String rol_testimonio) {
 		super();
 		this.id_testimonio = id_testimonio;
 		this.descripcion_testimonio = descripcion_testimonio;
 		this.usuario_testimonio = usuario_testimonio;
+		this.imagen_testimonio = imagen_testimonio;
 		this.fecha_testimonio = fecha_testimonio;
 		this.rol_testimonio = rol_testimonio;
 	}

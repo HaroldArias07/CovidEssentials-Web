@@ -107,173 +107,56 @@
             </div>
         </header>
         <div class="slideshow">
-            <div id="slideshow7">
+            <div id="slideshow7" >
                 <ul class="allinone_bannerRotator_list">
-                    <li data-text-id="#content_ss_1"><img src="/assets/images/home7-slideshow1.jpg" alt="img" /></li>
-                    <li data-text-id="#content_ss_2"><img src="/assets/images/home7-slideshow2.jpg" alt="img" /></li>
-                    <li data-text-id="#content_ss_3"><img src="/assets/images/home7-slideshow3.jpg" alt="img" /></li>
+                    <li th:each="carrusel:${carrusels}" th:data-text-id="'#'+${carrusel.id_carrusel}"><img th:src="${carrusel.imagen_carrusel}" alt="img" /></li >
                 </ul>
-                <div id="content_ss_1" class="allinone_bannerRotator_texts">
+                <div th:each="carrusel:${carrusels}" th:id="${carrusel.id_carrusel}" class="allinone_bannerRotator_texts">
                     <div class="content-slideshow" data-initial-left="200" data-initial-top="420" data-final-left="0" data-final-top="420" data-duration="0.6" data-fade-start="0" data-delay="0.2">
-                        <img class="content-img" src="/assets/images/home7-slide1-content-1.png" alt="img" />
+                        <img class="content-img" th:src="${carrusel.titulo_carrusel}" alt="img" />
                     </div>
                     <div class="content-slideshow" data-initial-left="-200" data-initial-top="540" data-final-left="0" data-final-top="540" data-duration="0.6" data-fade-start="0" data-delay="0.6">
-                        <img class="content-img" src="/assets/images/home7-slide1-content-2.png" alt="img" />
+                        <img class="content-img" th:src="${carrusel.descripcion_carrusel}" alt="img" />
                     </div>
                     <div class="content-link" data-initial-top="650" data-final-top="600" data-duration="0.7" data-fade-start="0" data-delay="0.8">
-                        <a class="link2" href="#">Learn more</a>
-                        <a class="link" href="#">Contact us</a>
+                        <a class="link2" th:if="${session.usuarios == null}" th:href="@{/public/aboutus}">Sobre nosotros</a>
+                        <a class="link2" th:if="${session.usuarios != null}" th:href="@{/private/aboutus}">Sobre nosotros</a>
                     </div>
-                </div>
-                <div id="content_ss_2" class="allinone_bannerRotator_texts">
-                    <div class="content-slideshow" data-initial-top="320" data-final-top="420" data-duration="0.6" data-fade-start="0" data-delay="0.2">
-                        <img class="content-img" src="/assets/images/home7-slide2-content-1.png" alt="img" />
-                    </div>
-                    <div class="content-slideshow" data-initial-top="440" data-final-top="540" data-duration="0.6" data-fade-start="0" data-delay="0.6">
-                        <img class="content-img" src="/assets/images/home7-slide2-content-2.png" alt="img" />
-                    </div>
-                    <div class="content-link" data-initial-left="-200" data-initial-top="600" data-final-left="0" data-final-top="600" data-duration="0.6" data-fade-start="0" data-delay="0.8">
-                        <a class="link" href="#">Contact us</a>
-                    </div>
-                </div>
-                <div id="content_ss_3" class="allinone_bannerRotator_texts">
-                    <div class="content-slideshow" data-initial-left="200" data-initial-top="420" data-final-left="0" data-final-top="420" data-duration="0.6" data-fade-start="0" data-delay="0">
-                        <img class="content-img" src="/assets/images/home7-slide3-content-1.png" alt="img" />
-                    </div>
-                    <div class="content-slideshow" data-initial-left="-200" data-initial-top="540" data-final-left="0" data-final-top="540" data-duration="0.6" data-fade-start="0" data-delay="0.6">
-                        <img class="content-img" src="/assets/images/home7-slide3-content-2.png" alt="img" />
-                    </div>
-                    <div class="content-link" data-initial-top="600" data-final-top="600" data-duration="0.6" data-fade-start="0" data-delay="0.8">
-                        <a class="link" href="#">Contact us</a>
-                    </div>
-                </div>
+                </div >
             </div>
         </div>
         
         <div class="our-works">
             <div class="container">
-                <h3>OUR PRODUCTS</h3>
-                <h5>Catalogue</h5>
+                <h3>NUESTRAS SEDES</h3>
                 <ul class="works-filter">
-                    <li class="filter" data-filter="all">ALL</li>
+                    <li class="filter" data-filter="all">TODO</li>
                 </ul>
                 <div class="list-works">
                     <div class="row">
-                        <div class="mix filter-1 col-md-4 col-sm-6">
+                        <div th:each="tienda:${tiendas}" th:if="${tienda.id_tienda} < 7" class="mix filter-1 col-md-4 col-sm-6">
                             <div class="works-item">
                                 <div class="works-thumb">
                                     <div class="main-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/thebluea.jpg" alt="img" />
+                                        <a th:if="${session.usuarios == null}">
+                                            <img class="img-responsive" th:src="${tienda.imagen_tienda}" alt="img" />
+                                            <a th:href="@{/public/stores}" class="details"><i class="pe-7s-search"></i></a>
+                                        </a>
+                                        <a th:if="${session.usuarios != null}">
+                                            <img class="img-responsive" th:src="${tienda.imagen_tienda}" alt="img" />
+                                            <a th:href="@{/private/stores}" class="details"><i class="pe-7s-search"></i></a>
                                         </a>
                                     </div>
-                                    <div class="overlay-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/thebluea.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <a href="portfolio.html" class="details"><i class="pe-7s-search"></i></a>
                                 </div>
-                                <h4><a href="portfolio.html">THE BLUE A</a></h4>
-                                <h6>PRINT, BRANDING</h6>
-                            </div>
-                        </div>
-                        <div class="mix filter-1 col-md-4 col-sm-6">
-                            <div class="works-item">
-                                <div class="works-thumb">
-                                    <div class="main-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/greengarden.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <div class="overlay-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/greengarden.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <a href="portfolio.html" class="details"><i class="pe-7s-search"></i></a>
-                                </div>
-                                <h4><a href="portfolio.html">GREEN GARDEN</a></h4>
-                                <h6>PRINT</h6>
-                            </div>
-                        </div>
-                        <div class="mix filter-2 col-md-4 col-sm-6">
-                            <div class="works-item">
-                                <div class="works-thumb">
-                                    <div class="main-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/lonelychair.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <div class="overlay-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/lonelychair.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <a href="portfolio.html" class="details"><i class="pe-7s-search"></i></a>
-                                </div>
-                                <h4><a href="portfolio.html">THE LONELY CHAIR IN THE WORLD</a></h4>
-                                <h6>INTERIOR</h6>
-                            </div>
-                        </div>
-                        <div class="mix filter-3 col-md-4 col-sm-6">
-                            <div class="works-item">
-                                <div class="works-thumb">
-                                    <div class="main-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/backpack.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <div class="overlay-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/backpack.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <a href="/portfolio.html" class="details"><i class="pe-7s-search"></i></a>
-                                </div>
-                                <h4><a href="/portfolio.html">BACK PACK COLLECTION SHOOT</a></h4>
-                                <h6>PHOTOGRAPHY</h6>
-                            </div>
-                        </div>
-                        <div class="mix filter-2 col-md-4 col-sm-6">
-                            <div class="works-item">
-                                <div class="works-thumb">
-                                    <div class="main-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/whitesneakers.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <div class="overlay-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/whitesneakers.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <a href="portfolio.html" class="details"><i class="pe-7s-search"></i></a>
-                                </div>
-                                <h4><a href="portfolio.html">ALL WHITE SNEAKERS</a></h4>
-                                <h6>PHOTOGRAPHY</h6>
-                            </div>
-                        </div>
-                        <div class="mix filter-2 col-md-4 col-sm-6">
-                            <div class="works-item">
-                                <div class="works-thumb">
-                                    <div class="main-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/recyclebags.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <div class="overlay-img">
-                                        <a href="portfolio.html">
-                                            <img class="img-responsive" src="/assets/images/recyclebags.jpg" alt="img" />
-                                        </a>
-                                    </div>
-                                    <a href="portfolio.html" class="details"><i class="pe-7s-search"></i></a>
-                                </div>
-                                <h4><a href="portfolio.html">RECYCLE BAGS</a></h4>
-                                <h6>PHOTOGRAPHY</h6>
+                                <h5 th:text="${tienda.nombre_tienda}"></h5 >
+                                <h6 th:text="${tienda.direccion_tienda}"> </h6 ><h4 th:text="${tienda.distrito_tienda}"> </h4>
                             </div>
                         </div>
                     </div>
+                    <div class="content-link" data-initial-top="650" data-final-top="600" data-duration="0.7" data-fade-start="0" data-delay="0.8">
+	                    <a th:if="${session.usuarios == null}" th:href="@{/public/stores}" class="link2 btn btn-danger btn-long">Ver más</a >
+						<a th:if="${session.usuarios != null}" th:href="@{/private/stores}" class="link2 btn btn-danger btn-long">Ver más</a >
+                    </div> 
                 </div>
             </div>
         </div>
@@ -282,154 +165,40 @@
         <hr class="gray-line" />
         <div class="latest-from-shop">
             <div class="container">
-                <h3>LATEST FROM SHOP</h3>
-                <h5>Trendy Clothing</h5>
+                <h3>NUESTROS PRODUCTOS</h3>
                 <div id="carousel-2">
                     <div class="box-content">
                         <div class="showcase">
                             <div class="row">
                                 <div class="box-product">
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="col-lg-3 col-md-4 col-sm-6" th:each="producto:${productos}" th:if="${producto.id_producto} < 5" >
                                         <div class="product-item">
                                             <div class="product-thumb">
                                                 <div class="main-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-3.jpg" alt="img" />
-                                                    </a>
+                                                    <a th:if="${session.usuarios == null}">
+                                                        <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
+                                                        <a th:href="@{/public/shop}" class="details"><i class="pe-7s-search"></i></a>
+                                                    </a >
+                                                    <a th:if="${session.usuarios != null}">
+                                                        <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
+                                                        <a th:href="@{/private/shop}" class="details"><i class="pe-7s-search"></i></a>
+                                                    </a >
                                                 </div>
-                                                <div class="overlay-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-3-thumb.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-sale">
-                                                    -25%
-                                                </div>
-                                                <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
                                             </div>
-                                            <h4 class="product-name"><a href="single-product.html">HOODED BOMBER JACKET</a></h4>
+                                            <h4 class="product-name">
+                                            	<a th:if="${session.usuarios == null}" th:href="@{/public/shop}" th:text="${producto.nombre_producto}"></a>
+                                            	<a th:if="${session.usuarios != null}" th:href="@{/private/shop}" th:text="${producto.nombre_producto}"></a>
+                                            </h4>
                                             <p class="product-price">
-                                            <ins><span class="amount">100.99 USD</span></ins>
-                                            <del><span class="amount">189.99 USD</span></del>
+                                            <ins><span class="amount">S/ </span><span class="amount" th:text="${producto.precio_producto}"></span></ins>
                                             </p>
                                             <div class="group-buttons">
-                                                <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                                <i class="pe-7s-repeat"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                <i class="pe-7s-like"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <div class="main-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-6.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="overlay-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-6-thumb.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-sale">
-                                                    -25%
-                                                </div>
-                                                <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
-                                            </div>
-                                            <h4 class="product-name"><a href="single-product.html">STRUCTURED COLLARLESS COAT</a></h4>
-                                            <p class="product-price">
-                                            <ins><span class="amount">100.99 USD</span></ins>
-                                            <del><span class="amount">189.99 USD</span></del>
-                                            </p>
-                                            <div class="group-buttons">
-                                                <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                                <i class="pe-7s-repeat"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                <i class="pe-7s-like"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <div class="main-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-11.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="overlay-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-11-thumb.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-sale">
-                                                    -25%
-                                                </div>
-                                                <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
-                                            </div>
-                                            <h4 class="product-name"><a href="single-product.html">HOUNDSTOOTH WOOL COAT</a></h4>
-                                            <p class="product-price">
-                                            <ins><span class="amount">100.99 USD</span></ins>
-                                            <del><span class="amount">189.99 USD</span></del>
-                                            </p>
-                                            <div class="group-buttons">
-                                                <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                                <i class="pe-7s-repeat"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                <i class="pe-7s-like"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <div class="main-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-1.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="overlay-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-1-thumb.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-sale">
-                                                    -25%
-                                                </div>
-                                                <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
-                                            </div>
-                                            <h4 class="product-name"><a href="single-product.html">COAT WITH WRAPAROUND COLLAR</a></h4>
-                                            <p class="product-price">
-                                            <ins><span class="amount">100.99 USD</span></ins>
-                                            <del><span class="amount">189.99 USD</span></del>
-                                            </p>
-                                            <div class="group-buttons">
-                                                <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                                <i class="pe-7s-repeat"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                <i class="pe-7s-like"></i>
-                                                </button>
+                                                <a th:if="${session.usuarios == null}" th:href="@{/auth/login}" type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                	<span>Comprar</span> <i class="fa fa-shopping-cart"></i>
+                                                </a>
+                                                <a th:if="${session.usuarios != null}" th:href="@{/private/shop}" type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                	<span>Comprar</span> <i class="fa fa-shopping-cart"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -439,147 +208,34 @@
                         <div class="showcase">
                             <div class="row">
                                 <div class="box-product">
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="col-lg-3 col-md-4 col-sm-6" th:each="producto:${productos}" th:if="${producto.id_producto} > 4 AND ${producto.id_producto} < 9" >
                                         <div class="product-item">
                                             <div class="product-thumb">
                                                 <div class="main-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-2.jpg" alt="img" />
-                                                    </a>
+                                                    <a th:if="${session.usuarios == null}">
+                                                        <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
+                                                        <a th:href="@{/public/shop}" class="details"><i class="pe-7s-search"></i></a>
+                                                    </a >
+                                                    <a th:if="${session.usuarios != null}">
+                                                        <img class="img-responsive" th:src="${producto.imagen_producto}" alt="img" />
+                                                        <a th:href="@{/private/shop}" class="details"><i class="pe-7s-search"></i></a>
+                                                    </a >
                                                 </div>
-                                                <div class="overlay-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-2-thumb.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-sale">
-                                                    -25%
-                                                </div>
-                                                <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
                                             </div>
-                                            <h4 class="product-name"><a href="single-product.html">COAT WITH WOOL WRAPAROUND COLLAR</a></h4>
+                                            <h4 class="product-name">
+                                            	<a th:if="${session.usuarios == null}" th:href="@{/public/shop}" th:text="${producto.nombre_producto}"></a>
+                                            	<a th:if="${session.usuarios != null}" th:href="@{/private/shop}" th:text="${producto.nombre_producto}"></a>
+                                            </h4>
                                             <p class="product-price">
-                                            <ins><span class="amount">100.99 USD</span></ins>
-                                            <del><span class="amount">189.99 USD</span></del>
+                                            <ins><span class="amount">S/ </span><span class="amount" th:text="${producto.precio_producto}"></span></ins>
                                             </p>
                                             <div class="group-buttons">
-                                                <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                                <i class="pe-7s-repeat"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                <i class="pe-7s-like"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <div class="main-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-8.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="overlay-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-8-thumb.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-sale">
-                                                    -25%
-                                                </div>
-                                                <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
-                                            </div>
-                                            <h4 class="product-name"><a href="single-product.html">HANDMADE FLARED JACKET</a></h4>
-                                            <p class="product-price">
-                                            <ins><span class="amount">100.99 USD</span></ins>
-                                            <del><span class="amount">189.99 USD</span></del>
-                                            </p>
-                                            <div class="group-buttons">
-                                                <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                                <i class="pe-7s-repeat"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                <i class="pe-7s-like"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <div class="main-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-5.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="overlay-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-5-thumb.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-sale">
-                                                    -25%
-                                                </div>
-                                                <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
-                                            </div>
-                                            <h4 class="product-name"><a href="single-product.html">UTILITY JACKET</a></h4>
-                                            <p class="product-price">
-                                            <ins><span class="amount">100.99 USD</span></ins>
-                                            <del><span class="amount">189.99 USD</span></del>
-                                            </p>
-                                            <div class="group-buttons">
-                                                <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                                <i class="pe-7s-repeat"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                <i class="pe-7s-like"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <div class="main-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-4.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="overlay-img">
-                                                    <a href="single-product.html">
-                                                        <img class="img-responsive" src="/assets/images/product-img-4-thumb.jpg" alt="img" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-sale">
-                                                    -25%
-                                                </div>
-                                                <a href="single-product.html" class="details"><i class="pe-7s-search"></i></a>
-                                            </div>
-                                            <h4 class="product-name"><a href="single-product.html">ANIMAL PRINT COAT</a></h4>
-                                            <p class="product-price">
-                                            <ins><span class="amount">100.99 USD</span></ins>
-                                            <del><span class="amount">189.99 USD</span></del>
-                                            </p>
-                                            <div class="group-buttons">
-                                                <button type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                <span>Add to Cart</span> <i class="fa fa-shopping-cart"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Compare this Product">
-                                                <i class="pe-7s-repeat"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                <i class="pe-7s-like"></i>
-                                                </button>
+                                                <a th:if="${session.usuarios == null}" th:href="@{/auth/login}" type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                	<span>Comprar</span> <i class="fa fa-shopping-cart"></i>
+                                                </a>
+                                                <a th:if="${session.usuarios != null}" th:href="@{/private/shop}" type="button" class="add-to-cart" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                	<span>Comprar</span> <i class="fa fa-shopping-cart"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -598,50 +254,20 @@
         <div class="testimonial-block testimonial-parallax parallax">
             <div class="bg-overlay"></div>
             <div class="container">
-                <h3>WHAT THEY SAY</h3>
-                <h5>Testimonials</h5>
+                <h3>QUE DICEN ELLOS</h3>
+                <h5>Testimonios</h5>
                 <div id="carousel-8">
-                    <div class="testimonial-item">
+                    <div class="testimonial-item" th:each="testimonio:${testimonios}">
                         <div class="media">
                             <div class="media-left">
-                                <img class="avatar img-responsive" src="/assets/images/testimonial-avatar1.png" alt="img" />
+                                <img class="avatar img-responsive" th:src="${testimonio.imagen_testimonio}" alt="img" />
                             </div>
                             <div class="media-body">
-                                <h4>LAURA BERNSHTEIN</h4>
-                                <h5>User</h5>
+                                <h4 th:text="${testimonio.usuario_testimonio}"></h4 >
+                                <h5 th:text="${testimonio.rol_testimonio}"></h5 >
                                 <div>
                                     <img class="quote" src="/assets/images/quote2.png" alt="img" />
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lectus mauris. Fusce ultrices in orci ac rhoncus. Duis dictum tempus neque, eu bibendum nibh viverra quis. ...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="avatar img-responsive" src="/assets/images/testimonial-avatar2.png" alt="img" />
-                            </div>
-                            <div class="media-body">
-                                <h4>GEORGE SMITH</h4>
-                                <h5>User</h5>
-                                <div>
-                                    <img class="quote" src="/assets/images/quote2.png" alt="img" />
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lectus mauris. Fusce ultrices in orci ac rhoncus. Duis dictum tempus neque, eu bibendum nibh viverra quis. ...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="avatar img-responsive" src="/assets/images/testimonial-avatar3.png" alt="img" />
-                            </div>
-                            <div class="media-body">
-                                <h4>LUCIANO BERIO</h4>
-                                <h5>User</h5>
-                                <div>
-                                    <img class="quote" src="/assets/images/quote2.png" alt="img" />
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lectus mauris. Fusce ultrices in orci ac rhoncus. Duis dictum tempus neque, eu bibendum nibh viverra quis. ...</p>
+                                    <p th:text="${testimonio.descripcion_testimonio}"></p >
                                 </div>
                             </div>
                         </div>

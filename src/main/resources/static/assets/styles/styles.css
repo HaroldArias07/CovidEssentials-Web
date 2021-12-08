@@ -15212,11 +15212,11 @@ header .main-nav .current-menu-item > a {
 }
 .works-filter li {
   color: #25292c;
-  margin: 0 20px 5px;
+  margin: 0 0px 0px;
   letter-spacing: 3px;
   padding-bottom: 3px;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -15228,10 +15228,10 @@ header .main-nav .current-menu-item > a {
 }
 .works-filter li:before {
   content: "";
-  position: absolute;
+  position: relative;
   z-index: -1;
-  left: 50%;
-  right: 50%;
+  left: 85%;
+  right: 0%;
   bottom: 0;
   background: #fe4e56;
   height: 1px;
@@ -15246,7 +15246,7 @@ header .main-nav .current-menu-item > a {
 .works-filter li:focus:before,
 .works-filter li:active:before {
   left: 0;
-  right: 0;
+  right: 100%;
 }
 .works-filter li:hover {
   color: #fe4e56;
@@ -15254,6 +15254,36 @@ header .main-nav .current-menu-item > a {
 .works-filter .active {
   color: #fe4e56;
 }
+
+.works-filter ul:before {
+  content: "";
+  position: relative;
+  z-index: -1;
+  left: 85%;
+  right: 0%;
+  bottom: 0;
+  background: #fe4e56;
+  height: 1px;
+  -webkit-transition-property: "left, right";
+  transition-property: "left, right";
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.works-filter ul:hover:before,
+.works-filter ul:focus:before,
+.works-filter ul:active:before {
+  left: 0;
+  right: 100%;
+}
+.works-filter ul:hover {
+  color: #fe4e56;
+}
+.works-filter .active {
+  color: #fe4e56;
+}
+
 /* ---------------------------------------
     4.31.3 LIST WORKS
     ----------------------------------------- */
