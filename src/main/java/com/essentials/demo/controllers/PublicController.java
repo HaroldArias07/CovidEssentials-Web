@@ -68,6 +68,13 @@ public class PublicController {
 		return "shop";
 	}
 	
+	@GetMapping("/shop2")
+	public String shop2(Model model) {
+		List<Productos>productos = productoService.listar();
+		model.addAttribute("productos", productos);
+		return "shop2";
+	}
+	
 	@GetMapping("/blog")
 	public String blog(Model model) {
 		List<Blogs>blogs = blogService.listar();

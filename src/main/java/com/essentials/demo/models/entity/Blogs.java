@@ -16,8 +16,10 @@ public class Blogs {
 	private String titulo_blog;
 	private String descripcion_blog;
 	private String fecha_blog;
+	private String idioma_blog;
+	private String rol_blog;
 	private String imagen_blog;
-	
+
 	public int getId_blog() {
 		return id_blog;
 	}
@@ -50,6 +52,22 @@ public class Blogs {
 		this.fecha_blog = fecha_blog;
 	}
 
+	public String getIdioma_blog() {
+		return idioma_blog;
+	}
+
+	public void setIdioma_blog(String idioma_blog) {
+		this.idioma_blog = idioma_blog;
+	}
+
+	public String getRol_blog() {
+		return rol_blog;
+	}
+
+	public void setRol_blog(String rol_blog) {
+		this.rol_blog = rol_blog;
+	}
+
 	public String getImagen_blog() {
 		return imagen_blog;
 	}
@@ -58,12 +76,15 @@ public class Blogs {
 		this.imagen_blog = imagen_blog;
 	}
 
-	public Blogs(int id_blog, String titulo_blog, String descripcion_blog, String fecha_blog, String imagen_blog) {
+	public Blogs(int id_blog, String titulo_blog, String descripcion_blog, String fecha_blog, String idioma_blog,
+			String rol_blog, String imagen_blog) {
 		super();
 		this.id_blog = id_blog;
 		this.titulo_blog = titulo_blog;
 		this.descripcion_blog = descripcion_blog;
 		this.fecha_blog = fecha_blog;
+		this.idioma_blog = idioma_blog;
+		this.rol_blog = rol_blog;
 		this.imagen_blog = imagen_blog;
 	}
 

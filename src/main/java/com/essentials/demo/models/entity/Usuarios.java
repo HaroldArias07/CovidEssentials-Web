@@ -20,6 +20,7 @@ public class Usuarios implements Serializable{
 	private String fecha;
 	private String email;
 	private String imagen;
+	private String rol;
 	private String username;
 	private String password;
 
@@ -79,6 +80,14 @@ public class Usuarios implements Serializable{
 		this.imagen = imagen;
 	}
 
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -95,12 +104,8 @@ public class Usuarios implements Serializable{
 		this.password = password;
 	}
 
-	public Usuarios() {
-		super();
-	}
-
 	public Usuarios(Long id, String nombre, String apellido, String telefono, String fecha, String email, String imagen,
-			String username, String password) {
+			String rol, String username, String password) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -109,8 +114,13 @@ public class Usuarios implements Serializable{
 		this.fecha = fecha;
 		this.email = email;
 		this.imagen = imagen;
+		this.rol = rol;
 		this.username = username;
 		this.password = password;
+	}
+	
+	public Usuarios() {
+		super();
 	}
 
 	private static final long serialVersionUID = 1L;

@@ -18,7 +18,7 @@ public class Productos {
 	private int stock_producto;
 	private String categoria_producto;
 	private String tipo_producto;
-	private String descripción_producto;
+	private String descripcion_producto;
 	private String imagen_producto;
 
 	public int getId_producto() {
@@ -69,12 +69,12 @@ public class Productos {
 		this.tipo_producto = tipo_producto;
 	}
 
-	public String getDescripción_producto() {
-		return descripción_producto;
+	public String getDescripcion_producto() {
+		return descripcion_producto;
 	}
 
-	public void setDescripción_producto(String descripción_producto) {
-		this.descripción_producto = descripción_producto;
+	public void setDescripcion_producto(String descripcion_producto) {
+		this.descripcion_producto = descripcion_producto;
 	}
 
 	public String getImagen_producto() {
@@ -86,7 +86,7 @@ public class Productos {
 	}
 
 	public Productos(int id_producto, String nombre_producto, double precio_producto, int stock_producto,
-			String categoria_producto, String tipo_producto, String descripción_producto, String imagen_producto) {
+			String categoria_producto, String tipo_producto, String descripcion_producto, String imagen_producto) {
 		super();
 		this.id_producto = id_producto;
 		this.nombre_producto = nombre_producto;
@@ -94,7 +94,7 @@ public class Productos {
 		this.stock_producto = stock_producto;
 		this.categoria_producto = categoria_producto;
 		this.tipo_producto = tipo_producto;
-		this.descripción_producto = descripción_producto;
+		this.descripcion_producto = descripcion_producto;
 		this.imagen_producto = imagen_producto;
 	}
 

@@ -197,4 +197,16 @@ public class PrivateController {
 		return "profile";
 	}
 	
+	@GetMapping("/editprofile")
+	public String editprofile(Authentication auth, HttpSession session) {
+		String username = auth.getName();
+		
+		if(session.getAttribute("usuarios") == null) {
+			Usuarios usuarios = usuarioService.findByUsername(username);
+			usuarios.setPassword(null);
+			session.setAttribute("usuarios", usuarios);
+		}
+		return "editprofile";
+	}
+	
 }

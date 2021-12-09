@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/","/assets/**","/PHPMailer/**","/auth/**","/public/**","/private/**", "/css/**","/js/**","/styles/**").permitAll().anyRequest().authenticated()
+		http.authorizeRequests().antMatchers("/","/assets/**","/PHPMailer/**","/auth/**","/public/**", "/css/**","/js/**","/styles/**").permitAll().anyRequest().authenticated()
 		
 		.and()
 			.formLogin().loginPage("/auth/login").defaultSuccessUrl("/private/index",true).failureUrl("/auth/login?error=true")

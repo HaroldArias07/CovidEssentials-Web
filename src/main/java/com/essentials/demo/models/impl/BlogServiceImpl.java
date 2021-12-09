@@ -28,14 +28,18 @@ public class BlogServiceImpl implements IBlogService {
 	}
 
 	@Override
-	public int save(Blogs p) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int save(Blogs b) {
+		int res=0;
+		Blogs blogs = blogDao.save(b);
+		if(!blogs.equals(null)) {
+			res=1;
+		}
+		return res;
 	}
 
 	@Override
 	public void delete(int id_blog) {
-		// TODO Auto-generated method stub
+		blogDao.deleteById(id_blog);
 	}
 
 }

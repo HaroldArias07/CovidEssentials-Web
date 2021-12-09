@@ -29,14 +29,17 @@ public class TiendaServiceImpl implements ITiendaService {
 
 	@Override
 	public int save(Tiendas t) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res=0;
+		Tiendas tiendas = tiendaDao.save(t);
+		if(!tiendas.equals(null)) {
+			res=1;
+		}
+		return res;
 	}
 
 	@Override
 	public void delete(int id_tienda) {
-		// TODO Auto-generated method stub
-		
+		tiendaDao.deleteById(id_tienda);
 	}
 
 }

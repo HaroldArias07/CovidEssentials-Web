@@ -29,14 +29,17 @@ public class ProductoServiceImpl implements IProductoService {
 
 	@Override
 	public int save(Productos p) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res=0;
+		Productos productos = productoDao.save(p);
+		if(!productos.equals(null)) {
+			res=1;
+		}
+		return res;
 	}
 
 	@Override
 	public void delete(int id_producto) {
-		// TODO Auto-generated method stub
-		
+		productoDao.deleteById(id_producto);
 	}
 
 }

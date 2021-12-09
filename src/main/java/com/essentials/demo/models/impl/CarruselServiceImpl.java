@@ -29,14 +29,17 @@ public class CarruselServiceImpl implements ICarruselService {
 
 	@Override
 	public int save(Carrusels c) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res=0;
+		Carrusels carrusels = carruselDao.save(c);
+		if(!carrusels.equals(null)) {
+			res=1;
+		}
+		return res;
 	}
 
 	@Override
 	public void delete(int id_carrusel) {
-		// TODO Auto-generated method stub
-		
+		carruselDao.deleteById(id_carrusel);
 	}
 
 }

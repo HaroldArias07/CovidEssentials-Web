@@ -29,14 +29,17 @@ public class TestimonioServiceImpl implements ITestimonioService {
 
 	@Override
 	public int save(Testimonios ts) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res=0;
+		Testimonios testimonios = testimonioDao.save(ts);
+		if(!testimonios.equals(null)) {
+			res=1;
+		}
+		return res;
 	}
 
 	@Override
 	public void delete(int id_testimonio) {
-		// TODO Auto-generated method stub
-		
+		testimonioDao.deleteById(id_testimonio);
 	}
 
 }

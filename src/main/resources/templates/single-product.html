@@ -6,7 +6,7 @@
 	    <meta name="keywords" content="keywords" />
 	    <meta name="description" content="description" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="shortcut icon" href="/assets/images/logo-ce.png" />
+        <link rel="shortcut icon" href="https://res.cloudinary.com/covid19-essentials/image/upload/v1638995844/Logos/logo-ce_cij7ir.png" />
 	    <link href="/assets/styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	    <link href="/assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css" />
 	    <link href="/assets/pe-icon-7-stroke/css/helper.css" rel="stylesheet" type="text/css" />
@@ -24,6 +24,20 @@
     <body class="home7">
         <div class="topbar">
             <div class="container">
+            
+             	<div class="left-topbar">
+                    <ul class="list-inline">
+                        <li>
+	                        <div th:if="${session.usuarios != null}">
+	                            <div th:if="${session.usuarios.rol == 'ADMIN'}" class="left-topbar">
+	                                <a class="link2 btn btn-danger btn-long" th:href="@{/admin/admin}"><span>Ver como administrador</span></a >
+	                             </div>
+	                             <div th:if="${session.usuarios.rol != 'ADMIN'}" class="left-topbar">
+	                             </div>
+	                        </div >
+                        </li>
+                    </ul>
+                </div>
                 <div class="right-topbar">
                     <ul class="list-inline">
                         <li>
@@ -31,9 +45,12 @@
                                 <a th:href="@{/auth/login}">INICIAR SESIÓN</a> / <a th:href="@{/auth/register}">REGISTRARME</a>
                              </div>
                              <div th:if="${session.usuarios != null}" class="left-topbar">
+                             <a th:href="@{/private/profile}"><img class="img-profile" th:src="${session.usuarios.imagen}">  <span th:text="${session.usuarios.username}"></span ></a>
+                             <!--
                                 <form th:action="@{/logout}" method="POST">
                                 	<button type="submit">CERRAR SESIÓN</button >
                                 </form>	
+                             -->
                              </div>
                         </li>
                     </ul>
@@ -47,10 +64,10 @@
             <div class="container">
             	<div>
             		<a class="logo" th:href="@{/private/index}" th:if="${session.usuarios != null}">
-                		<img src="/assets/images/logo-ce-l.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
+                		<img src="https://res.cloudinary.com/covid19-essentials/image/upload/v1638995845/Logos/logo-ce-l_o23fdp.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
             		</a>
 	                <a class="logo" th:href="@{/public/index}" th:if="${session.usuarios == null}">
-                		<img src="/assets/images/logo-ce-l.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
+                		<img src="https://res.cloudinary.com/covid19-essentials/image/upload/v1638995845/Logos/logo-ce-l_o23fdp.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
             		</a>
             	</div>
                 <!-- /.top-cart -->
@@ -556,7 +573,7 @@
                 </div>
                 <div class="bottom-footer">
                     <div class="copyright">
-                        © 2021 <a href="#">COVID-19 ESSENTIALS</a>. TODOS LOS DERECHOS RESERVADOS. 
+                        ©COPYRIGHT 2021. COVID-19 ESSENTIALS. TODOS LOS DERECHOS RESERVADOS. 
                     </div>
                     <!-- /.copyright -->
                     <ul class="list-payment">
