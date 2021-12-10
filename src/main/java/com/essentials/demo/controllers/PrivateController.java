@@ -8,7 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.essentials.demo.models.entity.Blogs;
@@ -198,7 +203,29 @@ public class PrivateController {
 	}
 	
 	@GetMapping("/editprofile")
-	public String editprofile(Authentication auth, HttpSession session) {
+	public String editprofile(Model model) {
+		model.addAttribute("usuario", new Usuarios());
+		return "editprofile";
+	}
+		
+	@PostMapping("/editprofile")
+	public String editar(@Validated @ModelAttribute Usuarios usuarios, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			return "redirect:/private/profile";
+		} else {
+			model.addAttribute("usuario", usuarioService.registrar(usuarios));
+		}
+		return "redirect:/private/profile";
+	}
+	
+	@GetMapping("/eliminar/profile/{id}")
+	public String delete(Model model, @PathVariable Long id) {
+		usuarioService.delete(id);
+		return "redirect:/eliminar";
+	}
+	
+	@GetMapping("/eliminar")
+	public String eliminar(Authentication auth, HttpSession session) {
 		String username = auth.getName();
 		
 		if(session.getAttribute("usuarios") == null) {
@@ -206,7 +233,7 @@ public class PrivateController {
 			usuarios.setPassword(null);
 			session.setAttribute("usuarios", usuarios);
 		}
-		return "editprofile";
+		return "eliminar";
 	}
 	
 }

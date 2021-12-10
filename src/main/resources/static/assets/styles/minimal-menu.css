@@ -261,8 +261,9 @@ MINIMAL CSS3 MENU
 	input.minimal-menu-button {
 		display: none;
 	}
+	/* BUTTON MENU*/
 	label.minimal-menu-button {
-		background-color: #222;
+		background-color: rgba(34, 34, 34, 0.514);
 		color: #fff;
 		cursor: pointer;
 		display: inline-block;
@@ -291,10 +292,12 @@ MINIMAL CSS3 MENU
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 		transition: left 0.8s, opacity 0.5s;
 	}
+	/* BACKGROUND MENU */	
 	#mobile-nav:checked + .minimal-menu {
 		visibility: visible;
 		left: 0;
 		opacity: 1;
+		background-color: #FFF;
 	}
 	.minimal-menu h3, .minimal-menu ul li a {
 		border-top: 1px solid transparent;

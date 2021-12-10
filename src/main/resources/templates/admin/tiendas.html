@@ -182,12 +182,14 @@
                                   *
                                 </td >
                                 <td>
-                                  <a href="#" class="button-action-edit">
+                                <!--
+                                  <button href="#" class="button-action-edit">
                                     <img class="icon-action" src="https://res.cloudinary.com/covid19-essentials/image/upload/v1639017872/Logos/edit-ic_iksypi.svg">
-                                  </a>
-                                  <a th:href="@{/admin/eliminar/tiendas/}+${tienda.id_tienda}" class="button-action-delete">
+                                  </button>-->
+                                  <button th:href="@{/admin/eliminar/tiendas/}+${tienda.id_tienda}" 
+                                  		  th:onclick="eliminarTienda([[${tienda.id_tienda}]])" class="button-action-delete">
                                     <img class="icon-action" src="https://res.cloudinary.com/covid19-essentials/image/upload/v1639017872/Logos/delete-ic_hi5e63.svg">
-                                  </a>
+                                  </button>
                                 </td>
                               </tr >
                               <!-- FIN TR -->
@@ -213,7 +215,7 @@
                             <div class="col-md-7 pl-1">
                               <div class="form-group">
                                 <label>Nombre</label>
-                                <input th:field="*{nombre_tienda}" type="text" class="form-control" placeholder="Nombre tienda">
+                                <input th:field="*{nombre_tienda}" type="text" class="form-control" required placeholder="Nombre tienda">
                               </div>
                             </div>
                             <div class="col-md-5 pl-1">
@@ -230,13 +232,13 @@
                             <div class="col-md-4 pr-1">
                               <div class="form-group">
                                 <label>Distrito/Estado</label>
-                                <input type="text" th:field="*{distrito_tienda}" class="form-control" placeholder="Distrito">
+                                <input type="text" th:field="*{distrito_tienda}" class="form-control" required placeholder="Distrito">
                               </div>
                             </div>
                             <div class="col-md-8 pl-1">
                               <div class="form-group">
                                 <label>Dirección</label>
-                                <input type="email" th:field="*{direccion_tienda}" class="form-control" placeholder="Dirección">
+                                <input type="text" th:field="*{direccion_tienda}" class="form-control" required placeholder="Dirección">
                               </div>
                             </div>
                           </div>
@@ -244,7 +246,7 @@
                             <div class="col-md-12 px-3">
                               <div class="form-group">
                                 <label>URL Imagen Tienda</label>
-                                <input id="imagen" type="text" th:field="*{imagen_tienda}" class="form-control" placeholder="https://">
+                                <input id="imagen" type="text" th:field="*{imagen_tienda}" class="form-control" required placeholder="https://">
                               </div>
                             </div>
                           </div>
@@ -278,6 +280,9 @@
     </div>
   </div>
   <!--   Core JS Files   -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../assets/functions/funciones.js"></script>
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -292,7 +297,7 @@
   <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
   <script type="text/javascript">
-  	document.getElementById('imagen').value='';
+  	document.getElementById('imagen').value='https://res.cloudinary.com/covid19-essentials/image/upload/v1639094726/Tiendas/TiendaNotFound_zydrca.jpg';
   </script>
 </body>
 

@@ -23,8 +23,7 @@ public class BlogServiceImpl implements IBlogService {
 
 	@Override
 	public Optional<Blogs> listarId(int id_blog) {
-		// TODO Auto-generated method stub
-		return null;
+		return blogDao.findById(id_blog);
 	}
 
 	@Override

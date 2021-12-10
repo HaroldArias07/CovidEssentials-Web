@@ -64,10 +64,10 @@
             <div class="container">
             	<div>
             		<a class="logo" th:href="@{/private/index}" th:if="${session.usuarios != null}">
-                		<img src="https://res.cloudinary.com/covid19-essentials/image/upload/v1638995845/Logos/logo-ce-l_o23fdp.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
+                		<img src="https://res.cloudinary.com/covid19-essentials/image/upload/v1638995845/Logos/logo-ce-l_o23fdp.png" class="image-logo" alt="Logo CovidEssentials" />
             		</a>
 	                <a class="logo" th:href="@{/public/index}" th:if="${session.usuarios == null}">
-                		<img src="https://res.cloudinary.com/covid19-essentials/image/upload/v1638995845/Logos/logo-ce-l_o23fdp.png" style="max-width: 300px; max-height: 100px;" alt="Logo CovidEssentials" />
+                		<img src="https://res.cloudinary.com/covid19-essentials/image/upload/v1638995845/Logos/logo-ce-l_o23fdp.png" class="image-logo" alt="Logo CovidEssentials" />
             		</a>
             	</div>
                 <!-- /.top-cart -->
@@ -129,47 +129,45 @@
                 <h3>PERFIL DE USUARIO</h3>
                 <h5>Bienvenido</h5>
             </div>
-            <div class="col-md-12 pdb-20">
+            <div class="col-md-2 pdb-20"></div>
+            <div class="col-md-8 pdb-20" th:if="${session.usuarios != null}">
                 <p>En esta página puedes configurar tu perfíl de usuario</p>
                 <hr class="gray-line" />
                 <p class="pdb-20"></p>
-                <form action="" method="post" class="">
+                <form th:action="@{/private/editprofile}" th:object="${usuario}" method="POST" >
                     <div class="row">
-                        <div class="col-md-2">
-                            <label>ID</label>
-                            <input class="input-form" type="number" disabled="" placeholder="" value="1"/> 
-                        </div>
-                        <div class="col-md-5">
+                    	<input class="input-form" type="hidden" disabled="" th:field=*{id}/> 
+                        <div class="col-md-6">
                             <label>Nombres</label>
-                            <input class="input-form" type="text" placeholder="Nombres" value="Harold Joseph"/> 
+                            <input class="input-form" type="text" placeholder="Nombres" th:field=*{nombre} /> 
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <label>Apellidos</label>
-                            <input class="input-form" type="text" placeholder="Apellidos" value="Arias Sotelo"/> 
+                            <input class="input-form" type="text" placeholder="Apellidos" th:field=*{apellido}/> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
                             <label>Teléfono</label>
-                            <input class="input-form" type="number" placeholder="999999999" value="987654321"/> 
+                            <input class="input-form" type="number" placeholder="999999999" th:field=*{telefono}/> 
                         </div>
                         <div class="col-md-3">
                             <label>Fecha de nacimiento</label>
-                            <input class="input-form" type="date" value="07/07/2001"/> 
+                            <input class="input-form" type="date" th:field=*{fecha}/> 
                         </div>
                         <div class="col-md-6">
                             <label>Correo</label>
-                            <input class="input-form" type="email" placeholder="Correo" value="harias@covid19essentials.com"/> 
+                            <input class="input-form" type="email" placeholder="Correo" th:field=*{email}/> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label>Username</label>
-                            <input class="input-form" type="number" placeholder="999999999" value="987654321"/> 
+                            <input class="input-form" type="text" placeholder="Username" th:field=*{username}/> 
                         </div>
                         <div class="col-md-6">
                             <label>Password</label>
-                            <input class="input-form" type="password" placeholder="*********" value="123456789"/> 
+                            <input class="input-form" type="password" placeholder="*********" /> 
                         </div>
                     </div>
                     <div class="row">
@@ -181,6 +179,7 @@
                     <div class="text-center">
                         <button class="submit-btn" type="submit">Guardar</button>
                     </div>
+                    <div class="col-md-2 pdb-20"></div>
                 </form>
             </div>
         </div>

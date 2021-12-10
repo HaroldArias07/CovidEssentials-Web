@@ -176,12 +176,14 @@
                                   *
                                 </td >
                                 <td>
-                                  <a href="#" class="button-action-edit">
+                                <!--
+                                  <button href="#" class="button-action-edit">
                                     <img class="icon-action" src="https://res.cloudinary.com/covid19-essentials/image/upload/v1639017872/Logos/edit-ic_iksypi.svg">
-                                  </a >
-                                  <a th:href="@{/admin/eliminar/testimonios/}+${testimonio.id_testimonio}" class="button-action-delete">
+                                  </button >-->
+                                  <button th:href="@{/admin/eliminar/testimonios/}+${testimonio.id_testimonio}" 
+                                  		  th:onclick="eliminarTestimonio([[${testimonio.id_testimonio}]])" class="button-action-delete">
                                     <img class="icon-action" src="https://res.cloudinary.com/covid19-essentials/image/upload/v1639017872/Logos/delete-ic_hi5e63.svg">
-                                  </a>
+                                  </button>
                                 </td>
                               </tr >
                               <!-- FIN TR -->
@@ -207,13 +209,13 @@
                             <div class="col-md-6 pl-1">
                               <div class="form-group">
                                 <label>Usuario</label>
-                                <input type="text" th:field="*{usuario_testimonio}" class="form-control" placeholder="Usuario">
+                                <input type="text" th:field="*{usuario_testimonio}" class="form-control" required placeholder="Usuario">
                               </div>
                             </div>
                             <div class="col-md-6 pl-1">
                               <div class="form-group">
                                 <label>Fecha</label>
-                                <input type="date" th:field="*{fecha_testimonio}" min="1950-01-01" class="form-control">
+                                <input type="date" th:field="*{fecha_testimonio}" min="1950-01-01" required class="form-control">
                               </div>
                             </div>
                           </div>
@@ -221,7 +223,7 @@
                             <div class="col-md-3 pr-1">
                               <div class="form-group">
                                 <label>Rol</label>
-                                <select class="form-control" th:field="*{rol_testimonio}">
+                                <select class="form-control" th:field="*{rol_testimonio}" required>
                                   <option value="USER">Usuario</option>
                                   <option value="ADMIN">Administrador</option>
                                 </select>
@@ -230,7 +232,7 @@
                             <div class="col-md-9 pl-1">
                               <div class="form-group">
                                 <label>URL Imagen</label>
-                                <input id="imagen" th:field="*{imagen_testimonio}" type="text" class="form-control" placeholder="https://">
+                                <input id="imagen" th:field="*{imagen_testimonio}" type="text" required class="form-control" placeholder="https://">
                               </div>
                             </div>
                           </div>
@@ -238,7 +240,7 @@
                             <div class="col-md-12 px-3">
                               <div class="form-group">
                                 <label>Descripcion</label>
-                                <textarea class="form-control" placeholder="Descripcion del Testimonio"></textarea>
+                                <textarea class="form-control" required placeholder="Descripcion del Testimonio"></textarea>
                               </div>
                             </div>
                           </div>
@@ -272,6 +274,9 @@
 	</div>
   </div>
   <!--   Core JS Files   -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../assets/functions/funciones.js"></script>
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -286,7 +291,7 @@
   <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
   <script type="text/javascript">
-  	document.getElementById('imagen').value='';
+  	document.getElementById('imagen').value='https://res.cloudinary.com/covid19-essentials/image/upload/v1638940028/Usuarios/testimonial-avatar1_edvv9z.png';
   </script>
 </body>
 

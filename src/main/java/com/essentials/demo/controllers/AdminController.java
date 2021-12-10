@@ -82,6 +82,15 @@ public class AdminController {
 		return "redirect:/admin/blogs";
 	}
 	
+	/*
+	@GetMapping("/editar/blogs/{id_blog}")
+	public String editarBlogs(@PathVariable int id_blog, Model model2) {
+		Optional<Blogs>blogs=blogService.listarId(id_blog);
+		model2.addAttribute("blog", blogs);
+		return "admin/editblogs";
+	}
+	*/
+	
 	@GetMapping("/eliminar/blogs/{id_blog}")
 	public String deleteBlogs(Model model, @PathVariable int id_blog) {
 		blogService.delete(id_blog);
