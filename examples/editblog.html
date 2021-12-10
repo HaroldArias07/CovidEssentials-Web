@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Dashboard
+    Editar Blog
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -35,7 +35,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li>
             <a href="./dashboard.html">
               <i class="nc-icon nc-bank"></i>
               <p>Perfil</p>
@@ -47,13 +47,13 @@
               <p>Usuarios</p>
             </a>
           </li>
-          <li>
+          <li >
             <a href="./productos.html">
               <i class="nc-icon nc-box-2"></i>
               <p>Productos</p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="./blogs.html">
               <i class="nc-icon nc-book-bookmark"></i>
               <p>Blogs</p>
@@ -92,7 +92,8 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Perfil de administrador</a>
+            <!--TITULO -->
+            <a class="navbar-brand" href="javascript:;">Edición de Blog</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -146,52 +147,87 @@
       </nav>
       <!-- End Navbar -->
       <div class="content">
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-6">
-            <div class="card card-user">
-              <div class="image">
-                <img src="../assets/img/damir-bosnjak.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../assets/img/user-avatar.png" alt="...">
-                    <h5 class="title">HaroldUchiha07</h5>
-                  </a>
-                  <p class="description">
-                    example@mail.com
-                  </p>
+        <div class="container">
+          <!-- ROW -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-user">
+                <div class="card-header">
+                  <h5 class="card-title">Editar Blog</h5>
                 </div>
-                <p class="description text-center">
-                  Harold Arias
-                </p>
-                <p class="description text-center">
-                  +51 963258741
-                </p>
-                <p class="description text-center">
-                  07/07/2001
-                </p>
-              </div>
-              <div class="card-footer">
-                <hr>
-                <div class="button-container">
-                  <div class="row">
-                    <div class="col-lg-3 col-md-6 col-6 ml-auto">
-                      <h5>12<br><small>Files</small></h5>
+                <div class="card-body">
+                  <form >
+                    <div class="row">
+                      <div class="col-md-2 pr-1">
+                        <div class="form-group">
+                          <label>ID</label>
+                          <input type="number" class="form-control" disabled="" placeholder="ID" value="1">
+                        </div>
+                      </div>
+                      <div class="col-md-4 pl-1">
+                        <div class="form-group">
+                          <label>Título</label>
+                          <input type="text" class="form-control" placeholder="Titulo">
+                        </div>
+                      </div>
+                      <div class="col-md-3 pl-1">
+                        <div class="form-group">
+                          <label>Idioma</label>
+                          <select class="form-control">
+                            <option value="Español">
+                              Español
+                            </option>
+                            <option value="Inglés">
+                              Inglés
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3 pl-1">
+                        <div class="form-group">
+                          <label>Fecha de publicacion</label>
+                          <input type="date" class="form-control">
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
-                      <h5>2GB<br><small>Used</small></h5>
+                    <div class="row">
+                      <div class="col-md-12 px-3">
+                        <div class="form-group">
+                          <label>Descripcion</label>
+                          <textarea class="form-control" placeholder="Descripcion del blog"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-3 pr-1">
+                        <div class="form-group">
+                          <label>Rol</label>
+                          <select class="form-control" disabled="">
+                            <option value="ADMIN">
+                              Administrador
+                            </option>
+                            <option value="Usuario">
+                              Usuario
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-9 px-3">
+                        <div class="form-group">
+                          <label>URL Imagen</label>
+                          <input type="text" class="form-control" placeholder="https://">
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-lg-3 mr-auto">
-                      <h5>24,6$<br><small>Spent</small></h5>
+                    <div class="row">
+                      <div class="update ml-auto mr-auto">
+                        <!-- boton danger -->
+                        <button type="submit" class="btn btn-danger btn-round">Guardar</button>
+                      </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-3"></div>
         </div>
       </div>
       <footer class="footer footer-black  footer-white ">
@@ -199,9 +235,9 @@
           <div class="row">
             <nav class="footer-nav">
               <ul>
-                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+                <li><a href="https://www.linkedin.com/in/luis-fernando-valdivia/" target="_blank">Valdivia</a></li>
+                <li><a href="https://www.linkedin.com/in/harold-arias-sotelo/" target="_blank">Arias</a></li>
+                <li><a href="#" target="_blank">Covid 19-Essentials</a></li>
               </ul>
             </nav>
             <div class="credits ml-auto">
@@ -230,12 +266,6 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-      demo.initChartsPages();
-    });
-  </script>
 </body>
 
 </html>

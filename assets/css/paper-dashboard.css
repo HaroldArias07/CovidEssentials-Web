@@ -3760,8 +3760,9 @@ License - nucleoapp.com/license/
 
 .card-user .image {
   height: 150px; }
-  .card-user .image img {
-    border-radius: 12px; }
+
+.card-user .image img {
+  border-radius: 12px; }
 
 .card-user .author {
   text-align: center;
