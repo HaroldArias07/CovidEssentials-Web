@@ -182,12 +182,12 @@
                         <div class="main-content">
                             <div class="top-products">
                                 <div class="showing-results">
-                                    Mostrando 10–18 productos
+                                    Mostrando 13–24 productos
                                 </div>
                             </div>
                             <div class="box-product row list-works">
                             <div class="row">
-                                <div th:each="producto:${productos}" th:if="${producto.id_producto} > 12 AND ${producto.id_producto} < 25" th:class="'mix col-md-4 '+${producto.tipo_producto}+' col-sm-6'">
+                                <div th:each="producto:${productos}" th:if="${producto.id_producto} > 12 AND ${producto.id_producto} < 40" th:class="'mix col-md-4 '+${producto.tipo_producto}+' col-sm-6'">
                                     <div class="product-item ">
                                         <div class="product-thumb">
                                             <div class="main-img">

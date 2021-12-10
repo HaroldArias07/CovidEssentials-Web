@@ -179,7 +179,7 @@ public class PrivateController {
 	}
 	
 	@GetMapping("/singleproduct")
-	public String singleproduct(Authentication auth, HttpSession session) {
+	public String singleproduct(Authentication auth, HttpSession session, Model model) {
 		String username = auth.getName();
 		
 		if(session.getAttribute("usuarios") == null) {
@@ -187,6 +187,8 @@ public class PrivateController {
 			usuarios.setPassword(null);
 			session.setAttribute("usuarios", usuarios);
 		}
+		List<Productos>productos = productoService.listar();
+		model.addAttribute("productos", productos);
 		return "single-product";
 	}
 	
@@ -204,8 +206,8 @@ public class PrivateController {
 	
 	@GetMapping("/editprofile")
 	public String editprofile(Model model) {
-		model.addAttribute("usuario", new Usuarios());
-		return "editprofile";
+		model.addAttribute("usuarios", new Usuarios());
+		return "register";
 	}
 		
 	@PostMapping("/editprofile")

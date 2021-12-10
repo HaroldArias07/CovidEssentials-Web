@@ -136,7 +136,7 @@
                 <p class="pdb-20"></p>
                 <form th:action="@{/private/editprofile}" th:object="${usuario}" method="POST" >
                     <div class="row">
-                    	<input class="input-form" type="hidden" disabled="" th:field=*{id}/> 
+                    	<input id="id" class="input-form" type="hidden" disabled="" th:field=*{id}/> 
                         <div class="col-md-6">
                             <label>Nombres</label>
                             <input class="input-form" type="text" placeholder="Nombres" th:field=*{nombre} /> 
